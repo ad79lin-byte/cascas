@@ -439,12 +439,17 @@ function testSlot(slotId) {
 
 // Обновление отображения статистики
 function updateStatsDisplay() {
-    document.getElementById('totalSpins').textContent = stats.totalSpins.toLocaleString();
-    document.getElementById('totalWagered').textContent = stats.totalWagered.toLocaleString() + '₽';
-    document.getElementById('totalWon').textContent = stats.totalWon.toLocaleString() + '₽';
-    
+    const setText = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+    };
+
+    setText('totalSpins', stats.totalSpins.toLocaleString());
+    setText('totalWagered', stats.totalWagered.toLocaleString() + '₽');
+    setText('totalWon', stats.totalWon.toLocaleString() + '₽');
+
     const actualRTP = stats.totalWagered > 0 ? (stats.totalWon / stats.totalWagered * 100) : 0;
-    document.getElementById('actualRTP').textContent = actualRTP.toFixed(2) + '%';
+    setText('actualRTP', actualRTP.toFixed(2) + '%');
 }
 
 // Показать уведомление
