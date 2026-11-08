@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a0b2e 0%, #16082a 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.logo-icon {
+    font-size: 48px;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+.auth-form h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #ddd;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-group input::placeholder {
+    color: #888;
+}
+
+.input-hint {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.btn-primary, .btn-secondary {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-bottom: 15px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.auth-divider {
+    text-align: center;
+    color: #888;
+    margin: 20px 0;
+    position: relative;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-divider::before {
+    left: 0;
+}
+
+.auth-divider::after {
+    right: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Уведомления */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    z-index: 10000;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease-out;
+}
+
+.notification.success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+}
+
+.notification.error {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .auth-card {
+        padding: 30px 20px;
+    }
+
+    .auth-logo {
+        font-size: 24px;
+    }
+
+    .logo-icon {
+        font-size: 36px;
+    }
+}

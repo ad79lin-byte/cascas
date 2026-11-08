@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LucyBliss Casino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Модальное окно бонусов -->
+    <div class="bonuses-modal" id="bonusesModal">
+        <div class="bonuses-modal-content">
+            <button class="modal-close" id="closeBonusesModal">&times;</button>
+            
+            <div class="bonuses-header">
+                <span class="bonuses-icon">🎁</span>
+                <h2>Бонусы</h2>
+                <p class="bonuses-subtitle">Получите максимум выгоды от игры</p>
+            </div>
+
+            <div class="bonuses-list">
+                <div class="bonus-card welcome">
+                    <div class="bonus-badge">ПОПУЛЯРНЫЙ</div>
+                    <div class="bonus-icon">🎉</div>
+                    <h3 class="bonus-title">Приветственный бонус</h3>
+                    <div class="bonus-value">100% до 10 000₽</div>
+                    <div class="bonus-description">+ 100 фриспинов на популярные слоты</div>
+                    <ul class="bonus-features">
+                        <li>✓ Первый депозит удваивается</li>
+                        <li>✓ Вейджер х35</li>
+                        <li>✓ Действует 7 дней</li>
+                    </ul>
+                    <button class="bonus-btn">Получить бонус</button>
+                </div>
+
+                <div class="bonus-card">
+                    <div class="bonus-icon">💎</div>
+                    <h3 class="bonus-title">VIP Кешбэк</h3>
+                    <div class="bonus-value">До 15%</div>
+                    <div class="bonus-description">Возврат от проигрышей каждую неделю</div>
+                    <ul class="bonus-features">
+                        <li>✓ Начисляется автоматически</li>
+                        <li>✓ Без вейджера</li>
+                        <li>✓ Каждый понедельник</li>
+                    </ul>
+                    <button class="bonus-btn">Подробнее</button>
+                </div>
+
+                <div class="bonus-card">
+                    <div class="bonus-icon">🎂</div>
+                    <h3 class="bonus-title">Бонус на День рождения</h3>
+                    <div class="bonus-value">500₽</div>
+                    <div class="bonus-description">Подарок от казино в ваш особенный день</div>
+                    <ul class="bonus-features">
+                        <li>✓ Реальные деньги</li>
+                        <li>✓ Бонусные фриспины</li>
+                        <li>✓ Специальные акции</li>
+                    </ul>
+                    <button class="bonus-btn">Получить</button>
+                </div>
+
+                <div class="bonus-card">
+                    <div class="bonus-icon">🔄</div>
+                    <h3 class="bonus-title">Бонус на депозит</h3>
+                    <div class="bonus-value">50% до 5 000₽</div>
+                    <div class="bonus-description">На второй и последующие депозиты</div>
+                    <ul class="bonus-features">
+                        <li>✓ Еженедельно</li>
+                        <li>✓ Вейджер х40</li>
+                        <li>✓ Минимум 500₽</li>
+                    </ul>
+                    <button class="bonus-btn">Активировать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно акций -->
+    <div class="promotions-modal" id="promotionsModal">
+        <div class="promotions-modal-content">
+            <button class="modal-close" id="closePromotionsModal">&times;</button>
+            
+            <div class="promotions-header">
+                <span class="promotions-icon">🏆</span>
+                <h2>Акции</h2>
+                <p class="promotions-subtitle">Участвуйте и выигрывайте</p>
+            </div>
+
+            <div class="promotions-list">
+                <div class="promo-card active">
+                    <div class="promo-status">АКТИВНА</div>
+                    <div class="promo-icon">⚡</div>
+                    <h3 class="promo-title">Турнир слотов</h3>
+                    <div class="promo-prize">Призовой фонд: 1 000 000₽</div>
+                    <div class="promo-description">Играйте в любимые слоты и выигрывайте реальные призы!</div>
+                    <div class="promo-info">
+                        <div class="promo-info-item">
+                            <span class="label">Осталось:</span>
+                            <span class="value">12 дней</span>
+                        </div>
+                        <div class="promo-info-item">
+                            <span class="label">Участников:</span>
+                            <span class="value">2 847</span>
+                        </div>
+                    </div>
+                    <ul class="promo-features">
+                        <li>🥇 1 место - 200 000₽</li>
+                        <li>🥈 2 место - 100 000₽</li>
+                        <li>🥉 3 место - 50 000₽</li>
+                        <li>🎁 4-100 места - от 1 000₽</li>
+                    </ul>
+                    <button class="promo-btn">Участвовать</button>
+                </div>
+
+                <div class="promo-card">
+                    <div class="promo-status">АКТИВНА</div>
+                    <div class="promo-icon">🎰</div>
+                    <h3 class="promo-title">Счастливые спины</h3>
+                    <div class="promo-prize">Каждый 100-й спин бесплатный!</div>
+                    <div class="promo-description">Играйте и получайте бесплатные вращения автоматически</div>
+                    <div class="promo-info">
+                        <div class="promo-info-item">
+                            <span class="label">Ваш прогресс:</span>
+                            <span class="value">47/100</span>
+                        </div>
+                    </div>
+                    <ul class="promo-features">
+                        <li>✓ Автоматическое начисление</li>
+                        <li>✓ Работает во всех слотах</li>
+                        <li>✓ Без ограничений</li>
+                    </ul>
+                    <button class="promo-btn">Продолжить игру</button>
+                </div>
+
+                <div class="promo-card upcoming">
+                    <div class="promo-status upcoming">СКОРО</div>
+                    <div class="promo-icon">🎄</div>
+                    <h3 class="promo-title">Новогодний марафон</h3>
+                    <div class="promo-prize">Суперпризы каждый день!</div>
+                    <div class="promo-description">Открывайте подарки в адвент-календаре</div>
+                    <div class="promo-info">
+                        <div class="promo-info-item">
+                            <span class="label">Начало:</span>
+                            <span class="value">1 декабря</span>
+                        </div>
+                    </div>
+                    <ul class="promo-features">
+                        <li>🎁 31 день подарков</li>
+                        <li>💰 Денежные призы</li>
+                        <li>🎰 Фриспины</li>
+                        <li>⭐ VIP-бонусы</li>
+                    </ul>
+                    <button class="promo-btn disabled" disabled>Ожидайте</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно провайдеров -->
+    <div class="providers-modal" id="providersModal">
+        <div class="providers-modal-content">
+            <button class="modal-close" id="closeProvidersModal">&times;</button>
+            
+            <div class="providers-header">
+                <h2>Выберите провайдера</h2>
+                <p class="providers-subtitle">Фильтр игр по производителю</p>
+            </div>
+
+            <div class="providers-grid">
+                <div class="provider-card" data-provider="all">
+                    <div class="provider-icon">🎮</div>
+                    <div class="provider-name">Все провайдеры</div>
+                    <div class="provider-count">Показать все</div>
+                </div>
+
+                <div class="provider-card" data-provider="pragmatic">
+                    <div class="provider-logo pragmatic-logo">
+                        <span>PRAGMATIC</span>
+                        <span class="logo-sub">PLAY</span>
+                    </div>
+                    <div class="provider-name">Pragmatic Play</div>
+                    <div class="provider-count">2 игры</div>
+                </div>
+
+                <div class="provider-card" data-provider="hacksaw">
+                    <div class="provider-logo hacksaw-logo">HACKSAW</div>
+                    <div class="provider-name">Hacksaw Gaming</div>
+                    <div class="provider-count">1 игра</div>
+                </div>
+
+                <div class="provider-card" data-provider="bgaming">
+                    <div class="provider-logo bgaming-logo">BGAMING</div>
+                    <div class="provider-name">BGaming</div>
+                    <div class="provider-count">1 игра</div>
+                </div>
+
+                <div class="provider-card" data-provider="5oaks">
+                    <div class="provider-logo oaks-logo">5 OAKS</div>
+                    <div class="provider-name">5 Oaks Gaming</div>
+                    <div class="provider-count">1 игра</div>
+                </div>
+
+                <div class="provider-card" data-provider="relax">
+                    <div class="provider-logo relax-logo">RELAX</div>
+                    <div class="provider-name">Relax Gaming</div>
+                    <div class="provider-count">1 игра</div>
+                </div>
+
+                <div class="provider-card" data-provider="lucy">
+                    <div class="provider-logo lucy-logo">
+                        <span>LUCY</span>
+                        <span class="logo-sub">ORIGINALS</span>
+                    </div>
+                    <div class="provider-name">Lucy Originals</div>
+                    <div class="provider-count">3 игры</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно пополнения -->
+    <div class="deposit-modal" id="depositModal">
+        <div class="deposit-modal-content">
+            <button class="modal-close" id="closeDepositModal">&times;</button>
+            
+            <div class="deposit-header">
+                <span class="deposit-icon">💰</span>
+                <h2>Пополнение баланса</h2>
+            </div>
+
+            <div class="deposit-form">
+                <div class="form-group">
+                    <label for="depositCountry">Страна</label>
+                    <select id="depositCountry" class="deposit-select">
+                        <option value="">Выберите страну</option>
+                        <option value="russia">🇷🇺 Россия</option>
+                        <option value="ukraine">🇺🇦 Украина</option>
+                        <option value="kazakhstan">🇰🇿 Казахстан</option>
+                        <option value="belarus">🇧🇾 Беларусь</option>
+                        <option value="other">🌍 Другая страна</option>
+                    </select>
+                </div>
+
+                <!-- Блок для России -->
+                <div id="russiaBlock" class="country-block" style="display: none;">
+                    <div class="form-group">
+                        <label for="depositCity">Город</label>
+                        <select id="depositCity" class="deposit-select">
+                            <option value="">Выберите город</option>
+                            <option value="spb">Санкт-Петербург</option>
+                            <option value="moscow">Москва</option>
+                            <option value="kazan">Казань</option>
+                            <option value="ekb">Екатеринбург</option>
+                            <option value="nsk">Новосибирск</option>
+                            <option value="other">Другой город</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Платёжная система</label>
+                        <div class="payment-methods">
+                            <div class="payment-card" data-method="mir">
+                                <div class="payment-logo mir-logo">МИР</div>
+                                <div class="payment-name">Карта МИР</div>
+                            </div>
+                            <div class="payment-card" data-method="visa">
+                                <div class="payment-logo visa-logo">VISA</div>
+                                <div class="payment-name">Visa</div>
+                            </div>
+                            <div class="payment-card" data-method="mastercard">
+                                <div class="payment-logo mastercard-logo">MC</div>
+                                <div class="payment-name">Mastercard</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок для других стран -->
+                <div id="otherCountryBlock" class="country-block" style="display: none;">
+                    <div class="form-group">
+                        <label>Платёжная система</label>
+                        <div class="payment-methods">
+                            <div class="payment-card" data-method="visa">
+                                <div class="payment-logo visa-logo">VISA</div>
+                                <div class="payment-name">Visa</div>
+                            </div>
+                            <div class="payment-card" data-method="mastercard">
+                                <div class="payment-logo mastercard-logo">MC</div>
+                                <div class="payment-name">Mastercard</div>
+                            </div>
+                            <div class="payment-card" data-method="crypto">
+                                <div class="payment-logo crypto-logo">₿</div>
+                                <div class="payment-name">Криптовалюта</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="amountBlock" style="display: none;">
+                    <label for="depositAmount">Сумма пополнения</label>
+                    <input type="number" id="depositAmount" class="deposit-input" placeholder="Введите сумму" min="100" step="100">
+                    <div class="amount-presets">
+                        <button class="amount-btn" data-amount="500">500 ₽</button>
+                        <button class="amount-btn" data-amount="1000">1000 ₽</button>
+                        <button class="amount-btn" data-amount="2000">2000 ₽</button>
+                        <button class="amount-btn" data-amount="5000">5000 ₽</button>
+                    </div>
+                </div>
+
+                <button class="btn-deposit-confirm" id="btnDepositConfirm" style="display: none;">
+                    Пополнить баланс
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно авторизации -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <button class="auth-modal-close" id="closeAuthModal">&times;</button>
+            
+            <div class="auth-modal-logo">
+                <span class="logo-icon">🎰</span>
+                <span class="logo-text">LucyBliss</span>
+            </div>
+
+            <!-- Форма входа -->
+            <div id="modalLoginForm" class="auth-form active">
+                <h2>Вход в аккаунт</h2>
+                <p class="subtitle">Войдите, чтобы играть на реальные деньги</p>
+
+                <div class="form-group">
+                    <label for="modalLoginUsername">Имя пользователя</label>
+                    <input type="text" id="modalLoginUsername" placeholder="Введите имя пользователя" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalLoginPassword">Пароль</label>
+                    <input type="password" id="modalLoginPassword" placeholder="Введите пароль" required>
+                </div>
+
+                <button class="btn-primary" id="btnModalLogin">Войти</button>
+
+                <div class="auth-divider">или</div>
+
+                <button class="btn-secondary" id="modalShowRegister">Создать аккаунт</button>
+            </div>
+
+            <!-- Форма регистрации -->
+            <div id="modalRegisterForm" class="auth-form">
+                <h2>Регистрация</h2>
+                <p class="subtitle">Создайте аккаунт для игры</p>
+
+                <div class="form-group">
+                    <label for="modalRegUsername">Имя пользователя</label>
+                    <input type="text" id="modalRegUsername" placeholder="Введите имя пользователя" required>
+                    <span class="input-hint">Минимум 3 символа</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalRegPassword">Пароль</label>
+                    <input type="password" id="modalRegPassword" placeholder="Введите пароль" required>
+                    <span class="input-hint">Минимум 6 символов</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalRegPasswordConfirm">Подтвердите пароль</label>
+                    <input type="password" id="modalRegPasswordConfirm" placeholder="Повторите пароль" required>
+                </div>
+
+                <button class="btn-primary" id="btnModalRegister">Создать аккаунт</button>
+
+                <div class="auth-divider">или</div>
+
+                <button class="btn-secondary" id="modalShowLogin">Уже есть аккаунт? Войти</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="casino-container">
+        <!-- Боковое меню -->
+        <aside class="sidebar">
+            <!-- Счетчик игроков онлайн -->
+            <div class="online-counter">
+                <span class="online-dot"></span>
+                <span class="online-text">Игроков онлайн</span>
+                <span class="online-count" id="onlineCount">5 390</span>
+            </div>
+
+            <!-- Профиль/Вход -->
+            <div class="user-profile-section" id="userProfileSection">
+                <div class="avatar-circle" id="userAvatar">👤</div>
+                <div class="profile-content" id="profileContent">
+                    <span class="login-text">Войти</span>
+                    <span class="arrow-icon">›</span>
+                </div>
+                <div class="user-info-block" id="userInfoBlock" style="display: none;">
+                    <div class="user-info" id="userInfo">
+                        <div class="username" id="userName"></div>
+                        <div class="user-id" id="userId"></div>
+                    </div>
+                    <button class="btn-logout-inline" id="btnLogout">Выйти</button>
+                </div>
+            </div>
+
+            <nav class="main-nav">
+                <a href="#" class="nav-item active">
+                    <span class="icon">🎰</span>
+                    <span>Казино</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🎮</span>
+                    <span>Live казино</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚽</span>
+                    <span>Спорт</span>
+                </a>
+            </nav>
+
+            <div class="nav-divider"></div>
+
+            <div class="nav-section">
+                <a href="bonuses.html" class="nav-item">
+                    <span class="icon">🎁</span>
+                    <span>Бонусы</span>
+                    <span class="badge">2</span>
+                </a>
+                <a href="promotions.html" class="nav-item">
+                    <span class="icon">🏆</span>
+                    <span>Акции</span>
+                </a>
+                <a href="admin.html" class="nav-item admin-link">
+                    <span class="icon">⚙️</span>
+                    <span>Админ-панель</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <!-- Хедер -->
+            <header class="header">
+                <div class="logo">
+                    <span class="logo-icon">🎰</span>
+                    <span class="logo-text">LucyBliss</span>
+                </div>
+                
+                <div class="header-actions" id="headerActions" style="display: none;">
+                    <div class="balance-display" id="balanceDisplay">
+                        <span class="balance-value" id="userBalance">1000.00</span>
+                        <span class="balance-currency">₽</span>
+                        <span class="balance-mode" id="balanceMode">(демо)</span>
+                    </div>
+                    <button class="btn-notifications" id="btnNotifications">🔔</button>
+                </div>
+            </header>
+
+            <!-- Баннеры -->
+            <section class="banners">
+                <a href="bonuses.html" class="banner-slide active" style="background-image: url('5549b915-24f3-45df-9e35-abfecef4b5e4.png'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+                </a>
+            </section>
+
+            <!-- Поиск -->
+            <div class="search-bar">
+                <input type="text" placeholder="🔍 Поиск игр..." id="searchInput">
+                <button class="btn-providers">Провайдеры</button>
+            </div>
+
+            <!-- Категории -->
+            <div class="categories">
+                <button class="category-btn active" data-category="all">
+                    <span class="cat-icon">🎮</span>
+                    Лобби
+                </button>
+                <button class="category-btn" data-category="history">
+                    <span class="cat-icon">📜</span>
+                    История
+                </button>
+                <button class="category-btn" data-category="popular">
+                    <span class="cat-icon">🔥</span>
+                    Популярные
+                </button>
+                <button class="category-btn" data-category="mell">
+                    <span class="cat-icon">⭐</span>
+                    Lucy Originals
+                </button>
+                <button class="category-btn" data-category="top">
+                    <span class="cat-icon">🏆</span>
+                    Топ игр
+                </button>
+                <button class="category-btn" data-category="tables">
+                    <span class="cat-icon">🎲</span>
+                    Lucy Tables
+                </button>
+                <button class="category-btn" data-category="slots">
+                    <span class="cat-icon">🎰</span>
+                    Слоты
+                </button>
+                <button class="category-btn" data-category="rtp">
+                    <span class="cat-icon">🔥</span>
+                    Hot RTP
+                </button>
+                <button class="category-btn" data-category="roulette">
+                    <span class="cat-icon">🎡</span>
+                    Рулетка
+                </button>
+                <button class="category-btn" data-category="new">
+                    <span class="cat-icon">✨</span>
+                    Новые
+                </button>
+                <button class="category-btn" data-category="live">
+                    <span class="cat-icon">📹</span>
+                    Live казино
+                </button>
+            </div>
+
+            <!-- Игры -->
+            <section class="games-section">
+                <div class="section-header">
+                    <h2>Популярные</h2>
+                    <a href="#" class="view-all">Все игры →</a>
+                </div>
+                
+                <div class="games-grid" id="gamesGrid">
+                    <!-- Sweet Bonanza -->
+                    <div class="game-card" data-game="candy-slot">
+                        <div class="game-image">
+                            <div class="rtp-badge" data-slot="candy-slot">RTP: 96.5%</div>
+                            <img src="candyslotcarta.jpg" alt="Sweet Bonanza" class="game-thumbnail">
+                            <div class="game-overlay">
+                                <button class="btn-play">ИГРАТЬ</button>
+                                <button class="btn-demo">ДЕМО</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-name">Sweet Bonanza</div>
+                            <div class="game-provider">PRAGMATIC PLAY</div>
+                        </div>
+                    </div>
+
+                    <!-- Gates of Olympus -->
+                    <div class="game-card" data-game="olympus">
+                        <div class="game-image">
+                            <div class="rtp-badge" data-slot="olympus">RTP: 96.0%</div>
+                            <img src="olumpusslotcar.jpg" alt="Gates of Olympus" class="game-thumbnail">
+                            <div class="game-overlay">
+                                <button class="btn-play">ИГРАТЬ</button>
+                                <button class="btn-demo">ДЕМО</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-name">Gates of Olympus</div>
+                            <div class="game-provider">PRAGMATIC PLAY</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lucy Originals -->
+            <section class="games-section">
+                <div class="section-header">
+                    <h2>Lucy Originals</h2>
+                    <a href="#" class="view-all">Все игры →</a>
+                </div>
+                
+                <div class="games-grid">
+                    <div class="game-card" data-game="crash">
+                        <div class="game-image">
+                            <div class="rtp-badge" data-slot="crash">RTP: 97.0%</div>
+                            <img src="crashcart.png" alt="Lucy Crash" class="game-thumbnail">
+                            <div class="game-overlay">
+                                <button class="btn-play">ИГРАТЬ</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-name">Lucy Crash</div>
+                            <div class="game-provider">LUCY ORIGINALS</div>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="nvuti">
+                        <div class="game-image">
+                            <div class="rtp-badge" data-slot="nvuti">RTP: 95.0%</div>
+                            <img src="nvuticart.png" alt="Lucy Nvuti" class="game-thumbnail">
+                            <div class="game-overlay">
+                                <button class="btn-play">ИГРАТЬ</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-name">Lucy Nvuti</div>
+                            <div class="game-provider">LUCY ORIGINALS</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

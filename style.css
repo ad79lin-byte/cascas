@@ -1,0 +1,2025 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #1a0b2e;
+    color: white;
+    overflow-x: hidden;
+}
+
+.casino-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Боковое меню */
+.sidebar {
+    width: 240px;
+    background: #16082a;
+    padding: 0;
+    overflow-y: auto;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Счетчик игроков онлайн */
+.online-counter {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 10px;
+}
+
+.online-dot {
+    width: 10px;
+    height: 10px;
+    background: #00ff88;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff88;
+    animation: pulse 2s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.online-text {
+    color: #888;
+    font-size: 12px;
+    flex: 1;
+}
+
+.online-count {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Секция профиля/входа */
+.user-profile-section {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.user-profile-section:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.avatar-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.profile-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+}
+
+.arrow-icon {
+    font-size: 28px;
+    color: #888;
+}
+
+.user-info-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-info .username {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    color: white;
+}
+
+.user-info .user-id {
+    font-size: 11px;
+    color: #888;
+}
+
+.btn-logout-inline {
+    padding: 8px 16px;
+    background: rgba(255, 75, 75, 0.1);
+    border: 1px solid rgba(255, 75, 75, 0.3);
+    color: #ff4b4b;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-logout-inline:hover {
+    background: rgba(255, 75, 75, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Секция выхода */
+.logout-section {
+    padding: 15px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-logout-full {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: rgba(255, 75, 75, 0.1);
+    border: 1px solid rgba(255, 75, 75, 0.3);
+    color: #ff4b4b;
+}
+
+.btn-logout-full:hover {
+    background: rgba(255, 75, 75, 0.2);
+    transform: translateY(-2px);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 20px;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.btn-logout {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    background: rgba(255, 75, 75, 0.1);
+    border: 1px solid rgba(255, 75, 75, 0.3);
+    color: #ff4b4b;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 75, 75, 0.2);
+    transform: scale(1.1);
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.username {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.user-id {
+    font-size: 11px;
+    color: #888;
+}
+
+.main-nav {
+    padding: 0 10px;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.nav-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 15px 20px;
+}
+
+.nav-section {
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 11px;
+    color: #888;
+    padding: 10px 10px 8px;
+    font-weight: bold;
+    display: none;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    color: #aaa;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+    position: relative;
+    font-weight: 600;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.nav-item .icon {
+    font-size: 18px;
+}
+
+.badge {
+    margin-left: auto;
+    background: #ff4757;
+    color: white;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.admin-link {
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    background: rgba(255, 215, 0, 0.05);
+}
+
+.admin-link:hover {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+/* Основной контент */
+.main-content {
+    margin-left: 240px;
+    flex: 1;
+    padding: 15px;
+    width: calc(100% - 240px);
+}
+
+/* Хедер */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo-icon {
+    font-size: 32px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.balance-display {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.balance-display:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.balance-value {
+    color: white;
+    font-size: 18px;
+}
+
+.balance-currency {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn-deposit {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-deposit:hover {
+    box-shadow: 0 5px 15px rgba(56, 239, 125, 0.4);
+}
+
+.btn-notifications {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-notifications:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Баннеры */
+.banners {
+    margin-bottom: 25px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.banner-slide {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 0;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    min-height: 350px;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.banner-slide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.banner-slide::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 25px 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    max-width: 500px;
+}
+
+.banner-content h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
+    font-weight: bold;
+}
+
+.banner-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    opacity: 1;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.banner-btn {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #1a0b2e;
+    border: 3px solid white;
+    padding: 14px 35px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 215, 0, 0.5);
+}
+
+.banner-btn:hover {
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.8), 0 0 0 3px rgba(255, 215, 0, 0.8);
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Поиск */
+.search-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.search-bar input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.search-bar input::placeholder {
+    color: #888;
+}
+
+.btn-providers {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-providers:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Категории */
+.categories {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.categories::-webkit-scrollbar {
+    height: 6px;
+}
+
+.categories::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.categories::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.category-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.category-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: transparent;
+}
+
+.cat-icon {
+    font-size: 16px;
+}
+
+/* Секция игр */
+.games-section {
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    font-size: 20px;
+}
+
+.view-all {
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.view-all:hover {
+    color: white;
+}
+
+/* Сетка игр */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 18px;
+    max-width: 100%;
+}
+
+.game-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.game-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.game-image {
+    position: relative;
+    padding-top: 140%;
+    overflow: hidden;
+}
+
+.game-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rtp-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.game-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.candy-preview {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.olympus-preview {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.wanted-preview {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.mine-preview {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+.egypt-preview {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.mummy-preview {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.dice-preview {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.crash-preview {
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+.preview-symbols {
+    font-size: 48px;
+}
+
+.preview-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.game-card:hover .game-overlay {
+    opacity: 1;
+}
+
+.btn-play, .btn-demo {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-demo {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-play:hover, .btn-demo:hover {
+    transform: scale(1.05);
+}
+
+.game-info {
+    padding: 15px;
+}
+
+.game-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.game-provider {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .main-content {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+        z-index: 1000;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+    }
+    
+    .banner-slide {
+        padding: 25px;
+    }
+    
+    .banner-content h2 {
+        font-size: 24px;
+    }
+}
+
+/* ========== МОДАЛЬНОЕ ОКНО АВТОРИЗАЦИИ ========== */
+.auth-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+.auth-modal-content {
+    background: rgba(26, 11, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 450px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    animation: slideUp 0.3s;
+}
+
+.auth-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.auth-modal-close:hover {
+    background: rgba(255, 75, 75, 0.2);
+    border-color: rgba(255, 75, 75, 0.5);
+    transform: rotate(90deg);
+}
+
+.auth-modal-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.auth-modal-logo .logo-icon {
+    font-size: 48px;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+.auth-form h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #ddd;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-group input::placeholder {
+    color: #888;
+}
+
+.input-hint {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.btn-primary, .btn-secondary {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-bottom: 15px;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.auth-divider {
+    text-align: center;
+    color: #888;
+    margin: 20px 0;
+    position: relative;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-divider::before {
+    left: 0;
+}
+
+.auth-divider::after {
+    right: 0;
+}
+
+/* ========== ИНДИКАТОР ДЕМО РЕЖИМА ========== */
+.balance-mode {
+    margin-left: 5px;
+    font-size: 12px;
+    color: #ffa500;
+    font-weight: 600;
+}
+
+/* ========== АНИМАЦИИ ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ ========== */
+@media (max-width: 768px) {
+    .auth-modal-content {
+        padding: 30px 20px;
+        width: 95%;
+    }
+
+    .auth-modal-logo {
+        font-size: 24px;
+    }
+
+    .auth-modal-logo .logo-icon {
+        font-size: 36px;
+    }
+}
+
+/* ========== МОДАЛЬНОЕ ОКНО ПОПОЛНЕНИЯ ========== */
+.deposit-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+.deposit-modal-content {
+    background: rgba(26, 11, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 550px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    animation: slideUp 0.3s;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: rgba(255, 75, 75, 0.2);
+    border-color: rgba(255, 75, 75, 0.5);
+    transform: rotate(90deg);
+}
+
+.deposit-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.deposit-icon {
+    font-size: 48px;
+}
+
+.deposit-header h2 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.deposit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.deposit-select {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.deposit-select:hover,
+.deposit-select:focus {
+    border-color: rgba(102, 126, 234, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.deposit-select option {
+    background: #1a0b2e;
+    color: white;
+}
+
+.country-block {
+    animation: fadeIn 0.3s;
+}
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.payment-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.payment-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+.payment-card.selected {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.8);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+}
+
+.payment-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mir-logo {
+    color: #4db45e;
+    background: linear-gradient(135deg, #4db45e, #35a84d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.visa-logo {
+    color: #1a1f71;
+    background: linear-gradient(135deg, #1a1f71, #0055a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mastercard-logo {
+    color: #eb001b;
+    background: linear-gradient(135deg, #eb001b, #f79e1b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.crypto-logo {
+    color: #f7931a;
+    font-size: 32px;
+}
+
+.payment-name {
+    font-size: 13px;
+    color: #ddd;
+    font-weight: 500;
+}
+
+.deposit-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.deposit-input:focus {
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.deposit-input::placeholder {
+    color: #888;
+}
+
+.amount-presets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.amount-btn {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.amount-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+.amount-btn.active {
+    background: rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.8);
+}
+
+.btn-deposit-confirm {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.btn-deposit-confirm:hover {
+    box-shadow: 0 8px 25px rgba(56, 239, 125, 0.4);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .payment-methods {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .amount-presets {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .deposit-modal-content {
+        padding: 30px 20px;
+    }
+}
+
+/* ========== МОДАЛЬНОЕ ОКНО ПРОВАЙДЕРОВ ========== */
+.providers-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+.providers-modal-content {
+    background: rgba(26, 11, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 700px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    animation: slideUp 0.3s;
+}
+
+.providers-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.providers-header h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.providers-subtitle {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.providers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.provider-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.provider-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(102, 126, 234, 0.6);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+}
+
+.provider-card.selected {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.8);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.provider-icon {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.provider-logo {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 5px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+}
+
+.logo-sub {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.pragmatic-logo {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+.hacksaw-logo {
+    color: #ff4757;
+    text-shadow: 0 0 10px rgba(255, 71, 87, 0.6);
+}
+
+.bgaming-logo {
+    color: #4facfe;
+    text-shadow: 0 0 10px rgba(79, 172, 254, 0.6);
+}
+
+.oaks-logo {
+    color: #38ef7d;
+    text-shadow: 0 0 10px rgba(56, 239, 125, 0.6);
+}
+
+.relax-logo {
+    color: #a8edea;
+    text-shadow: 0 0 10px rgba(168, 237, 234, 0.6);
+}
+
+.lucy-logo {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.provider-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ddd;
+}
+
+.provider-count {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .providers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .providers-modal-content {
+        padding: 30px 20px;
+    }
+}
+
+/* ========== МОДАЛЬНОЕ ОКНО БОНУСОВ ========== */
+.bonuses-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.bonuses-modal-content {
+    background: rgba(26, 11, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    animation: slideUp 0.3s;
+}
+
+.bonuses-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.bonuses-icon {
+    font-size: 60px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.bonuses-header h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.bonuses-subtitle {
+    color: #aaa;
+    font-size: 16px;
+}
+
+.bonuses-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.bonus-card {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.bonus-card:hover {
+    border-color: rgba(102, 126, 234, 0.6);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.bonus-card.welcome {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 140, 0, 0.15) 100%);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+.bonus-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.bonus-icon {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.bonus-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.bonus-value {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+}
+
+.bonus-card.welcome .bonus-value {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bonus-description {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.bonus-features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.bonus-features li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: #ddd;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bonus-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.bonus-btn:hover {
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* ========== МОДАЛЬНОЕ ОКНО АКЦИЙ ========== */
+.promotions-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.promotions-modal-content {
+    background: rgba(26, 11, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    animation: slideUp 0.3s;
+}
+
+.promotions-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.promotions-icon {
+    font-size: 60px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.promotions-header h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.promotions-subtitle {
+    color: #aaa;
+    font-size: 16px;
+}
+
+.promotions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.promo-card {
+    background: linear-gradient(135deg, rgba(17, 153, 142, 0.1) 0%, rgba(56, 239, 125, 0.1) 100%);
+    border: 2px solid rgba(56, 239, 125, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.promo-card:hover {
+    border-color: rgba(56, 239, 125, 0.6);
+    box-shadow: 0 10px 30px rgba(56, 239, 125, 0.2);
+}
+
+.promo-card.active {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 140, 0, 0.15) 100%);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+.promo-card.upcoming {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-color: rgba(102, 126, 234, 0.3);
+    opacity: 0.8;
+}
+
+.promo-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.promo-status.upcoming {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.promo-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.promo-title {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.promo-prize {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 15px;
+}
+
+.promo-description {
+    color: #aaa;
+    font-size: 15px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.promo-info {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.promo-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.promo-info-item .label {
+    font-size: 12px;
+    color: #888;
+}
+
+.promo-info-item .value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.promo-features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.promo-features li {
+    padding: 10px;
+    font-size: 14px;
+    color: #ddd;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.promo-btn {
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.promo-btn:hover {
+    box-shadow: 0 5px 20px rgba(56, 239, 125, 0.5);
+}
+
+.promo-btn.disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .bonuses-modal-content,
+    .promotions-modal-content {
+        padding: 30px 20px;
+    }
+    
+    .bonuses-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .promo-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .promo-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* ========== СТРАНИЦЫ БОНУСОВ И АКЦИЙ ========== */
+.page-title-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.page-title-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.page-icon {
+    font-size: 36px;
+}
+
+.page-title-content h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.page-description {
+    color: #aaa;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Карточки бонусов */
+.bonus-card .game-image {
+    position: relative;
+}
+
+.bonus-badge, .promo-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.promo-status.active {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.promo-status.upcoming {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bonus-preview, .promo-preview {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 15px 12px;
+    text-align: center;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.bonus-card.featured .bonus-preview {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+}
+
+.bonus-preview.vip {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bonus-preview.birthday {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+}
+
+.bonus-preview.reload {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.bonus-preview.nodeposit {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.bonus-preview.weekly {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.promo-preview.lucky {
+    background: linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%);
+}
+
+.promo-preview.rocket {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);
+}
+
+.promo-preview.xmas {
+    background: linear-gradient(135deg, #2e7d32 0%, #66bb6a 100%);
+}
+
+.promo-preview.jackpot {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+}
+
+.promo-preview.referral {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.promo-card.featured .promo-preview {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+}
+
+.promo-card.upcoming {
+    opacity: 0.8;
+}
+
+.bonus-icon-large, .promo-icon-large {
+    font-size: 40px;
+    margin-bottom: 3px;
+}
+
+.bonus-title, .promo-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 3px;
+}
+
+.bonus-value, .promo-prize {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    line-height: 1;
+    margin-bottom: 3px;
+}
+
+.bonus-subtitle, .promo-meta {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.promo-meta {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+.promo-meta span {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.btn-demo.disabled {
+    background: rgba(255, 255, 255, 0.2);
+    cursor: not-allowed;
+}
+
+.bonus-card .game-info,
+.promo-card .game-info {
+    padding: 10px;
+}
+
+.bonus-card .game-name,
+.promo-card .game-name {
+    font-size: 11px;
+    margin-bottom: 3px;
+}
+
+.bonus-card .game-provider,
+.promo-card .game-provider {
+    font-size: 10px;
+}
+
+@media (max-width: 768px) {
+    .page-title-content h1 {
+        font-size: 22px;
+    }
+    
+    .page-icon {
+        font-size: 28px;
+    }
+    
+    .bonus-value, .promo-prize {
+        font-size: 28px;
+    }
+    
+    .bonus-preview, .promo-preview {
+        min-height: 140px;
+        padding: 12px 10px;
+    }
+    
+    .bonus-icon-large, .promo-icon-large {
+        font-size: 36px;
+    }
+}

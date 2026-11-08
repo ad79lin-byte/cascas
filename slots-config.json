@@ -1,0 +1,87 @@
+{
+  "global": {
+    "rtp": 96.0,
+    "description": "Глобальный RTP, применяемый ко всем слотам"
+  },
+  "slots": {
+    "candy-slot": {
+      "name": "Sweet Bonanza",
+      "provider": "PRAGMATIC PLAY",
+      "rtp": 96.5,
+      "volatility": "high",
+      "bonusFrequency": 150,
+      "maxMultiplier": 21000,
+      "description": "Кластерный слот с высокой волатильностью и каскадными выигрышами"
+    },
+    "olympus": {
+      "name": "Gates of Olympus",
+      "provider": "PRAGMATIC PLAY",
+      "rtp": 96.0,
+      "volatility": "high",
+      "bonusFrequency": 180,
+      "maxMultiplier": 5000,
+      "description": "Слот с множителями и божественными бонусами"
+    },
+    "crash": {
+      "name": "Lucy Crash",
+      "provider": "LUCY ORIGINALS",
+      "rtp": 97.0,
+      "volatility": "medium",
+      "crashPoint": 2.0,
+      "maxMultiplier": 1000,
+      "description": "Игра с растущим множителем и моментом краша"
+    },
+    "nvuti": {
+      "name": "Lucy Nvuti",
+      "provider": "LUCY ORIGINALS",
+      "rtp": 95.0,
+      "volatility": "medium",
+      "guessChance": 48,
+      "maxMultiplier": 100,
+      "description": "Игра на угадывание с постепенным увеличением множителя"
+    }
+  },
+  "volatilityDescriptions": {
+    "low": {
+      "name": "Низкая волатильность",
+      "description": "Частые малые выигрыши, стабильная игра с низким риском",
+      "winFrequency": "Каждые 3-5 спинов",
+      "avgWinMultiplier": "1-5x"
+    },
+    "medium": {
+      "name": "Средняя волатильность",
+      "description": "Сбалансированная игра с умеренными рисками и выигрышами",
+      "winFrequency": "Каждые 5-10 спинов",
+      "avgWinMultiplier": "5-20x"
+    },
+    "high": {
+      "name": "Высокая волатильность",
+      "description": "Редкие но крупные выигрыши, высокий риск и потенциал",
+      "winFrequency": "Каждые 10-20 спинов",
+      "avgWinMultiplier": "20-100x"
+    },
+    "extreme": {
+      "name": "Экстремальная волатильность",
+      "description": "Очень редкие огромные выигрыши, максимальный риск и потенциал",
+      "winFrequency": "Каждые 30-50 спинов",
+      "avgWinMultiplier": "100-1000x+"
+    }
+  },
+  "rtpRanges": {
+    "low": {
+      "min": 85,
+      "max": 91.9,
+      "description": "Низкий RTP - больше прибыли для казино"
+    },
+    "medium": {
+      "min": 92,
+      "max": 95.9,
+      "description": "Средний RTP - сбалансированная игра"
+    },
+    "high": {
+      "min": 96,
+      "max": 98,
+      "description": "Высокий RTP - выгодно для игроков"
+    }
+  }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nvuti - LucyBliss Casino</title>
+    <link rel="stylesheet" href="nvuti.css">
+</head>
+<body>
+    <!-- Боковое меню -->
+    <aside class="sidebar">
+        <!-- Счетчик игроков онлайн -->
+        <div class="online-counter">
+            <span class="online-dot"></span>
+            <span class="online-text">Игроков онлайн</span>
+            <span class="online-count" id="onlineCount">5 390</span>
+        </div>
+
+        <!-- Профиль/Вход -->
+        <div class="user-profile-section" id="userProfileSection">
+            <div class="avatar-circle" id="userAvatar">👤</div>
+            <div class="profile-content" id="profileContent">
+                <span class="login-text">Войти</span>
+                <span class="arrow-icon">›</span>
+            </div>
+            <div class="user-info-block" id="userInfoBlock" style="display: none;">
+                <div class="user-info" id="userInfo">
+                    <div class="username" id="userName"></div>
+                    <div class="user-id" id="userId"></div>
+                </div>
+                <button class="btn-logout-inline" id="btnLogout">Выйти</button>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <a href="index.html" class="nav-item">
+                <span class="icon">🎰</span>
+                <span>Казино</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">🎮</span>
+                <span>Live казино</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">⚽</span>
+                <span>Спорт</span>
+            </a>
+        </nav>
+
+        <div class="nav-divider"></div>
+
+        <div class="nav-section">
+            <a href="bonuses.html" class="nav-item">
+                <span class="icon">🎁</span>
+                <span>Бонусы</span>
+                <span class="badge">2</span>
+            </a>
+            <a href="promotions.html" class="nav-item">
+                <span class="icon">🏆</span>
+                <span>Акции</span>
+            </a>
+            <a href="admin.html" class="nav-item admin-link">
+                <span class="icon">⚙️</span>
+                <span>Админ-панель</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Основной контент игры -->
+    <div class="game-wrapper">
+        <!-- Хедер -->
+        <header class="game-header">
+            <div class="game-title">
+                <button class="btn-back" id="btnBack">←</button>
+                <span class="game-name-header">LucyBliss • NVUTI</span>
+                <span class="rtp-indicator" id="rtpIndicator">RTP: 95.0%</span>
+            </div>
+            
+            <div class="header-right">
+                <div class="user-info-display" id="userInfoDisplay" style="display: none;">
+                    <span class="username-display" id="usernameDisplay"></span>
+                    <button class="btn-logout-header" id="btnLogoutHeader">Выйти</button>
+                </div>
+                <div class="header-actions" id="headerActions" style="display: none;">
+                    <div class="balance-display" id="balanceDisplay">
+                        <span class="balance-value" id="userBalance">1000.00</span>
+                        <span class="balance-currency">₽</span>
+                        <span class="balance-mode" id="balanceMode">(демо)</span>
+                    </div>
+                    <button class="btn-notifications" id="btnNotifications">🔔</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="nvuti-container">
+            <!-- Игровая область -->
+            <div class="game-area">
+                <!-- Режим игры -->
+                <div class="game-mode">
+                    <h2>Режим игры</h2>
+                    <div class="mode-tabs">
+                        <button class="mode-tab active">MAIN GAME</button>
+                    </div>
+                </div>
+
+                <!-- Настройки -->
+                <div class="game-settings">
+                    <div class="setting-group">
+                        <label>Сумма</label>
+                        <input type="number" id="betAmount" value="50" step="1" min="1">
+                        <div class="setting-buttons">
+                            <button class="btn-setting" id="doubleBet">Удвоить</button>
+                            <button class="btn-setting" id="halfBet">Половина</button>
+                        </div>
+                        <div class="setting-buttons">
+                            <button class="btn-setting" id="maxBet">Макс</button>
+                            <button class="btn-setting" id="minBet">Мин</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label>Процент</label>
+                        <input type="number" id="chanceInput" value="70" step="1" min="1" max="98">
+                        <div class="setting-buttons">
+                            <button class="btn-setting" id="doubleChance">+10</button>
+                            <button class="btn-setting" id="halfChance">-10</button>
+                        </div>
+                        <div class="setting-buttons">
+                            <button class="btn-setting" id="maxChance">Макс</button>
+                            <button class="btn-setting" id="minChance">Мин</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hash игры -->
+                <div class="game-hash">
+                    <div class="hash-label">Hash игры:</div>
+                    <div class="hash-value" id="gameHash">Ожидание...</div>
+                </div>
+            </div>
+
+            <!-- Результат и кнопки -->
+            <div class="result-area">
+                <div class="result-display">
+                    <div class="result-number" id="resultNumber">71.43</div>
+                    <div class="result-label">Возможный выигрыш</div>
+                </div>
+
+                <div class="range-selector">
+                    <div class="range-info">
+                        <span>0 - 699999</span>
+                        <span>300000 - 999999</span>
+                    </div>
+                    <div class="range-buttons">
+                        <button class="btn-range" id="btnLower">Меньше</button>
+                        <button class="btn-range" id="btnHigher">Больше</button>
+                    </div>
+                </div>
+
+                <!-- История игр -->
+                <div class="history-section">
+                    <div class="history-header">
+                        <span>Последние игры</span>
+                        <span class="history-count" id="historyCount">● 0</span>
+                    </div>
+                    <div class="history-table">
+                        <div class="history-table-header">
+                            <span>ЛОГИН</span>
+                            <span>ЧИСЛО</span>
+                            <span>ЦЕЛЬ</span>
+                            <span>СУММА</span>
+                            <span>ШАНС</span>
+                            <span>ВЫИГРЫШ</span>
+                        </div>
+                        <div class="history-table-body" id="historyTableBody">
+                            <div class="empty-history">Нет истории игр</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script src="nvuti.js"></script>
+</body>
+</html>

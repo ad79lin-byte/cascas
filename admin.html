@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - LucyBliss Casino</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Боковое меню -->
+        <aside class="sidebar">
+            <div class="admin-logo">
+                <span class="logo-icon">⚙️</span>
+                <span class="logo-text">ADMIN PANEL</span>
+            </div>
+            
+            <nav class="admin-nav">
+                <a href="#" class="nav-item active" data-section="slots">
+                    <span class="icon">🎰</span>
+                    <span>Управление слотами</span>
+                </a>
+                <a href="#" class="nav-item" data-section="stats">
+                    <span class="icon">📊</span>
+                    <span>Статистика</span>
+                </a>
+                <a href="#" class="nav-item" data-section="users">
+                    <span class="icon">👥</span>
+                    <span>Пользователи</span>
+                </a>
+                <a href="#" class="nav-item" data-section="settings">
+                    <span class="icon">⚙️</span>
+                    <span>Настройки</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn-exit">
+                    <span class="icon">🚪</span>
+                    <span>Выход в казино</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <!-- Заголовок -->
+            <header class="admin-header">
+                <h1>Управление слотами</h1>
+                <div class="header-actions">
+                    <button class="btn btn-save" id="saveAllBtn">
+                        <span>💾</span>
+                        Сохранить все изменения
+                    </button>
+                    <button class="btn btn-reset" id="resetAllBtn">
+                        <span>🔄</span>
+                        Сброс настроек
+                    </button>
+                </div>
+            </header>
+
+            <!-- Секция управления слотами -->
+            <section id="slots-section" class="content-section active">
+                <!-- Глобальные настройки -->
+                <div class="global-settings card">
+                    <h2>🌐 Глобальные настройки</h2>
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <label>Глобальный RTP (влияет на все слоты)</label>
+                            <div class="slider-container">
+                                <input type="range" id="globalRTP" min="70" max="99" value="96" step="0.1">
+                                <span class="slider-value" id="globalRTPValue">96.0%</span>
+                            </div>
+                            <p class="setting-description">Рекомендуемое значение: 94-96%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Список слотов -->
+                <div class="slots-grid">
+                    <!-- Sweet Bonanza -->
+                    <div class="slot-card card" data-slot="candy-slot">
+                        <div class="slot-header">
+                            <div class="slot-preview candy-preview">
+                                <div class="preview-symbols">🍬💜❤️</div>
+                            </div>
+                            <div class="slot-info">
+                                <h3>Sweet Bonanza</h3>
+                                <span class="slot-provider">PRAGMATIC PLAY</span>
+                                <span class="slot-status active">● Активен</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slot-settings">
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">💰</span>
+                                    RTP (Return to Player)
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" class="rtp-slider" min="85" max="98" value="96.5" step="0.1" data-slot="candy-slot">
+                                    <span class="slider-value rtp-value">96.5%</span>
+                                </div>
+                                <div class="setting-presets">
+                                    <button class="preset-btn" data-value="92">Низкий</button>
+                                    <button class="preset-btn" data-value="96">Средний</button>
+                                    <button class="preset-btn active" data-value="96.5">Высокий</button>
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">📈</span>
+                                    Волатильность
+                                </label>
+                                <select class="volatility-select" data-slot="candy-slot">
+                                    <option value="low">Низкая (частые малые выигрыши)</option>
+                                    <option value="medium">Средняя (сбалансированная)</option>
+                                    <option value="high" selected>Высокая (редкие крупные выигрыши)</option>
+                                    <option value="extreme">Экстремальная (очень редкие огромные выигрыши)</option>
+                                </select>
+                                <p class="volatility-description">
+                                    Высокая волатильность означает более редкие, но более крупные выигрыши
+                                </p>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">🎁</span>
+                                    Частота бонусов
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" class="bonus-freq-slider" min="50" max="500" value="150" step="10" data-slot="candy-slot">
+                                    <span class="slider-value bonus-freq-value">1 из 150 спинов</span>
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">💎</span>
+                                    Максимальный множитель
+                                </label>
+                                <input type="number" class="max-multiplier-input" min="100" max="50000" value="21000" step="100" data-slot="candy-slot">
+                            </div>
+                        </div>
+
+                        <div class="slot-actions">
+                            <button class="btn btn-test" onclick="testSlot('candy-slot')">
+                                🎮 Протестировать
+                            </button>
+                            <button class="btn btn-save" onclick="saveSlot('candy-slot')">
+                                💾 Сохранить
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Gates of Olympus -->
+                    <div class="slot-card card" data-slot="olympus">
+                        <div class="slot-header">
+                            <div class="slot-preview olympus-preview">
+                                <div class="preview-symbols">⚡🏛️👑</div>
+                            </div>
+                            <div class="slot-info">
+                                <h3>Gates of Olympus</h3>
+                                <span class="slot-provider">PRAGMATIC PLAY</span>
+                                <span class="slot-status active">● Активен</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slot-settings">
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">💰</span>
+                                    RTP (Return to Player)
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" class="rtp-slider" min="85" max="98" value="96.0" step="0.1" data-slot="olympus">
+                                    <span class="slider-value rtp-value">96.0%</span>
+                                </div>
+                                <div class="setting-presets">
+                                    <button class="preset-btn" data-value="92">Низкий</button>
+                                    <button class="preset-btn active" data-value="96">Средний</button>
+                                    <button class="preset-btn" data-value="96.5">Высокий</button>
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">📈</span>
+                                    Волатильность
+                                </label>
+                                <select class="volatility-select" data-slot="olympus">
+                                    <option value="low">Низкая (частые малые выигрыши)</option>
+                                    <option value="medium">Средняя (сбалансированная)</option>
+                                    <option value="high" selected>Высокая (редкие крупные выигрыши)</option>
+                                    <option value="extreme">Экстремальная (очень редкие огромные выигрыши)</option>
+                                </select>
+                                <p class="volatility-description">
+                                    Высокая волатильность означает более редкие, но более крупные выигрыши
+                                </p>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">🎁</span>
+                                    Частота бонусов
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" class="bonus-freq-slider" min="50" max="500" value="180" step="10" data-slot="olympus">
+                                    <span class="slider-value bonus-freq-value">1 из 180 спинов</span>
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">💎</span>
+                                    Максимальный множитель
+                                </label>
+                                <input type="number" class="max-multiplier-input" min="100" max="50000" value="5000" step="100" data-slot="olympus">
+                            </div>
+                        </div>
+
+                        <div class="slot-actions">
+                            <button class="btn btn-test" onclick="testSlot('olympus')">
+                                🎮 Протестировать
+                            </button>
+                            <button class="btn btn-save" onclick="saveSlot('olympus')">
+                                💾 Сохранить
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Crash -->
+                    <div class="slot-card card" data-slot="crash">
+                        <div class="slot-header">
+                            <div class="slot-preview crash-preview">
+                                <div class="preview-symbols">🚀📈💥</div>
+                            </div>
+                            <div class="slot-info">
+                                <h3>Lucy Crash</h3>
+                                <span class="slot-provider">LUCY ORIGINALS</span>
+                                <span class="slot-status active">● Активен</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slot-settings">
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">💰</span>
+                                    RTP (Return to Player)
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" class="rtp-slider" min="85" max="98" value="97.0" step="0.1" data-slot="crash">
+                                    <span class="slider-value rtp-value">97.0%</span>
+                                </div>
+                                <div class="setting-presets">
+                                    <button class="preset-btn" data-value="92">Низкий</button>
+                                    <button class="preset-btn" data-value="96">Средний</button>
+                                    <button class="preset-btn active" data-value="97">Высокий</button>
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">📈</span>
+                                    Волатильность
+                                </label>
+                                <select class="volatility-select" data-slot="crash">
+                                    <option value="low">Низкая (частые малые множители)</option>
+                                    <option value="medium" selected>Средняя (сбалансированная)</option>
+                                    <option value="high">Высокая (редкие крупные множители)</option>
+                                    <option value="extreme">Экстремальная (очень редкие x100+)</option>
+                                </select>
+                                <p class="volatility-description">
+                                    Средняя волатильность обеспечивает баланс между частотой и размером множителей
+                                </p>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">🎯</span>
+                                    Средний краш-поинт
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" class="crash-point-slider" min="1.5" max="3.0" value="2.0" step="0.1" data-slot="crash">
+                                    <span class="slider-value crash-point-value">2.0x</span>
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">💎</span>
+                                    Максимальный множитель
+                                </label>
+                                <input type="number" class="max-multiplier-input" min="100" max="10000" value="1000" step="10" data-slot="crash">
+                            </div>
+                        </div>
+
+                        <div class="slot-actions">
+                            <button class="btn btn-test" onclick="testSlot('crash')">
+                                🎮 Протестировать
+                            </button>
+                            <button class="btn btn-save" onclick="saveSlot('crash')">
+                                💾 Сохранить
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Nvuti -->
+                    <div class="slot-card card" data-slot="nvuti">
+                        <div class="slot-header">
+                            <div class="slot-preview nvuti-preview">
+                                <div class="preview-symbols">🎲🎯💰</div>
+                            </div>
+                            <div class="slot-info">
+                                <h3>Lucy Nvuti</h3>
+                                <span class="slot-provider">LUCY ORIGINALS</span>
+                                <span class="slot-status active">● Активен</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slot-settings">
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">💰</span>
+                                    RTP (Return to Player)
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" class="rtp-slider" min="85" max="98" value="95.0" step="0.1" data-slot="nvuti">
+                                    <span class="slider-value rtp-value">95.0%</span>
+                                </div>
+                                <div class="setting-presets">
+                                    <button class="preset-btn" data-value="92">Низкий</button>
+                                    <button class="preset-btn active" data-value="95">Средний</button>
+                                    <button class="preset-btn" data-value="97">Высокий</button>
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">📈</span>
+                                    Волатильность
+                                </label>
+                                <select class="volatility-select" data-slot="nvuti">
+                                    <option value="low">Низкая (частые малые выигрыши)</option>
+                                    <option value="medium" selected>Средняя (сбалансированная)</option>
+                                    <option value="high">Высокая (редкие крупные выигрыши)</option>
+                                    <option value="extreme">Экстремальная (очень редкие огромные выигрыши)</option>
+                                </select>
+                                <p class="volatility-description">
+                                    Средняя волатильность обеспечивает стабильную игру с умеренными рисками
+                                </p>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">🎲</span>
+                                    Шанс угадывания
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" class="guess-chance-slider" min="40" max="55" value="48" step="1" data-slot="nvuti">
+                                    <span class="slider-value guess-chance-value">48%</span>
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <label>
+                                    <span class="setting-icon">💎</span>
+                                    Максимальный множитель
+                                </label>
+                                <input type="number" class="max-multiplier-input" min="10" max="1000" value="100" step="5" data-slot="nvuti">
+                            </div>
+                        </div>
+
+                        <div class="slot-actions">
+                            <button class="btn btn-test" onclick="testSlot('nvuti')">
+                                🎮 Протестировать
+                            </button>
+                            <button class="btn btn-save" onclick="saveSlot('nvuti')">
+                                💾 Сохранить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция статистики (скрыта по умолчанию) -->
+            <section id="stats-section" class="content-section">
+                <div class="card">
+                    <h2>📊 Статистика игр</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">🎰</div>
+                            <div class="stat-value" id="totalSpins">0</div>
+                            <div class="stat-label">Всего спинов</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-value" id="totalWagered">0₽</div>
+                            <div class="stat-label">Всего поставлено</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-value" id="totalWon">0₽</div>
+                            <div class="stat-label">Всего выиграно</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📈</div>
+                            <div class="stat-value" id="actualRTP">0%</div>
+                            <div class="stat-label">Реальный RTP</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция управления пользователями -->
+            <section id="users-section" class="content-section">
+                <div class="card">
+                    <h2>👥 Управление пользователями</h2>
+                    <div class="users-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Всего пользователей:</span>
+                            <span class="stat-value" id="totalUsers">0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="users-table-container">
+                        <table class="users-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Имя пользователя</th>
+                                    <th>Баланс</th>
+                                    <th>Дата регистрации</th>
+                                    <th>Последний вход</th>
+                                    <th>Статус вывода</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <tr class="empty-row">
+                                    <td colspan="7">Нет пользователей</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Модальное окно редактирования пользователя -->
+    <div id="editUserModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModal">&times;</span>
+            <h3>Редактирование пользователя</h3>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" id="editUserId" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Имя пользователя</label>
+                    <input type="text" id="editUserName" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Баланс (₽)</label>
+                    <input type="number" id="editUserBalance" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="editWithdrawalBlocked">
+                        Заблокировать вывод средств
+                    </label>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" id="saveUserBtn">Сохранить</button>
+                    <button class="btn btn-secondary" id="cancelEditBtn">Отмена</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Уведомления -->
+    <div id="notification" class="notification"></div>
+
+    <script src="auth.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gates of Olympus - LucyBliss Casino</title>
+    <link rel="stylesheet" href="olympus.css">
+</head>
+<body>
+    <!-- Боковое меню -->
+    <aside class="sidebar">
+        <!-- Счетчик игроков онлайн -->
+        <div class="online-counter">
+            <span class="online-dot"></span>
+            <span class="online-text">Игроков онлайн</span>
+            <span class="online-count" id="onlineCount">5 390</span>
+        </div>
+
+        <!-- Профиль/Вход -->
+        <div class="user-profile-section" id="userProfileSection">
+            <div class="avatar-circle" id="userAvatar">👤</div>
+            <div class="profile-content" id="profileContent">
+                <span class="login-text">Войти</span>
+                <span class="arrow-icon">›</span>
+            </div>
+            <div class="user-info-block" id="userInfoBlock" style="display: none;">
+                <div class="user-info" id="userInfo">
+                    <div class="username" id="userName"></div>
+                    <div class="user-id" id="userId"></div>
+                </div>
+                <button class="btn-logout-inline" id="btnLogout">Выйти</button>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <a href="index.html" class="nav-item">
+                <span class="icon">🎰</span>
+                <span>Казино</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">🎮</span>
+                <span>Live казино</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">⚽</span>
+                <span>Спорт</span>
+            </a>
+        </nav>
+
+        <div class="nav-divider"></div>
+
+        <div class="nav-section">
+            <a href="bonuses.html" class="nav-item">
+                <span class="icon">🎁</span>
+                <span>Бонусы</span>
+                <span class="badge">2</span>
+            </a>
+            <a href="promotions.html" class="nav-item">
+                <span class="icon">🏆</span>
+                <span>Акции</span>
+            </a>
+            <a href="admin.html" class="nav-item admin-link">
+                <span class="icon">⚙️</span>
+                <span>Админ-панель</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Основной контент игры -->
+    <div class="game-wrapper">
+        <!-- Хедер -->
+        <header class="game-header">
+            <div class="game-title">
+                <button class="btn-back" id="btnBack">←</button>
+                <span class="game-name-header">Gates of Olympus</span>
+                <span class="rtp-indicator" id="rtpIndicator">RTP: 96.0%</span>
+            </div>
+            
+            <div class="header-right">
+                <div class="user-info-display" id="userInfoDisplay" style="display: none;">
+                    <span class="username-display" id="usernameDisplay"></span>
+                    <button class="btn-logout-header" id="btnLogoutHeader">Выйти</button>
+                </div>
+                <div class="header-actions" id="headerActions" style="display: none;">
+                    <div class="balance-display" id="balanceDisplay">
+                        <span class="balance-value" id="userBalance">1000.00</span>
+                        <span class="balance-currency">₽</span>
+                        <span class="balance-mode" id="balanceMode">(демо)</span>
+                    </div>
+                    <button class="btn-notifications" id="btnNotifications">🔔</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-container">
+        <!-- Основной контент со слотом -->
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="free-spins">
+                    <div class="free-spins-label">ОСТАЛОСЬ ФРИСПИНОВ</div>
+                    <div class="free-spins-count" id="freeSpins">0</div>
+                </div>
+                
+                <div class="paytable">
+                    <div class="pay-line">
+                        <span class="symbols">10 ⚡</span>
+                        <span class="payout">₽7.50</span>
+                    </div>
+                    <div class="pay-line">
+                        <span class="symbols">8 ⚡</span>
+                        <span class="payout">₽4.00</span>
+                    </div>
+                    <div class="pay-line">
+                        <span class="symbols">8 ⚡</span>
+                        <span class="payout">₽20.00</span>
+                    </div>
+                    <div class="pay-line">
+                        <span class="symbols">8 ⚡</span>
+                        <span class="payout">₽10.00</span>
+                    </div>
+                    <div class="pay-line">
+                        <span class="symbols">6 ⚡</span>
+                        <span class="payout">₽5.00</span>
+                    </div>
+                </div>
+
+                <button class="buy-bonus-btn" id="buyBonusBtn">
+                    <div class="bonus-icon">⚡</div>
+                    <div class="bonus-text">
+                        <div class="bonus-label">КУПИТЬ БОНУС</div>
+                        <div class="bonus-price" id="bonusPrice">₽1000.00</div>
+                    </div>
+                </button>
+            </div>
+
+            <div class="slot-area">
+                <!-- Управление звуком в правом верхнем углу (над слотом) -->
+                <div style="position: absolute; top: -65px; right: 0; z-index: 100; display: flex; align-items: center; gap: 5px; background: rgba(0,0,0,0.7); padding: 5px 8px; border-radius: 5px;">
+                    <button class="btn-info" id="infoBtn" style="width: 25px; height: 25px; font-size: 14px; padding: 0; display: flex; align-items: center; justify-content: center;">ℹ️</button>
+                    <button class="btn-sound" id="toggleMusicBtn" style="width: 25px; height: 25px; font-size: 14px; padding: 0; display: flex; align-items: center; justify-content: center;">🔊</button>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="30" 
+                           style="width: 70px; height: 3px; cursor: pointer; -webkit-appearance: none; appearance: none; background: rgba(255, 255, 255, 0.3); border-radius: 5px; outline: none;">
+                </div>
+                
+                <div class="slot-machine">
+                    <div class="grid" id="grid"></div>
+                    <div class="win-display" id="winDisplay" style="display: none;">ВЫИГРЫШ ₽0.00</div>
+                    
+                    <!-- Панель множителей (показывается только в бонусе) -->
+                    <div class="multipliers-panel" id="multipliersPanel" style="display: none;">
+                        <div class="multipliers-title">МНОЖИТЕЛИ</div>
+                        <div class="multipliers-list" id="multipliersList"></div>
+                    </div>
+                </div>
+
+                <!-- Кнопки управления под слотом -->
+                <div class="controls" style="margin-top: 20px; display: flex; align-items: flex-end; justify-content: space-between;">
+                    <!-- Левая часть: Баланс и Ставка -->
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <div style="text-align: left;">
+                            <div style="color: #ffeb3b; font-size: 14px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">БАЛАНС</div>
+                            <div style="color: white; font-size: 32px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);" id="balance">₽100.00</div>
+                        </div>
+                        <div style="text-align: left;">
+                            <div style="color: #ffeb3b; font-size: 14px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">СТАВКА</div>
+                            <div style="color: white; font-size: 32px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);" id="betAmount">₽10.00</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Правая часть: Кнопки управления и кнопка крутки -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                        <!-- Выигрыш над кнопкой (скрыт когда нет выигрыша) -->
+                        <div class="tumblewin" id="tumblewin-hidden" style="min-height: 40px;">
+                            <span class="label">ВЫИГРЫШ</span>
+                            <span class="amount" id="tumblewin">₽0.00</span>
+                        </div>
+                        
+                        <!-- Кнопки: минус, крутка, плюс -->
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <button class="btn-minus" id="minusBtn" style="width: 60px; height: 60px; font-size: 28px; border-radius: 50%;">−</button>
+                            
+                            <button class="btn-spin" id="spinBtn" style="width: 100px; height: 100px;">
+                                <svg class="spin-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 12C4 7.58172 7.58172 4 12 4C14.5264 4 16.7792 5.17108 18.2454 7M20 12C20 16.4183 16.4183 20 12 20C9.47362 20 7.22075 18.8289 5.75463 17M20 4V7M20 7H17M4 20V17M4 17H7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            
+                            <button class="btn-plus" id="plusBtn" style="width: 60px; height: 60px; font-size: 28px; border-radius: 50%;">+</button>
+                        </div>
+                        
+                        <!-- Автоигра под кнопкой крутки -->
+                        <button class="btn-autoplay" id="autoplayBtn" style="width: 180px; height: 50px;">АВТОИГРА</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script src="olympus.js"></script>
+</body>
+</html>
